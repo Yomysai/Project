@@ -1,0 +1,11 @@
+INDEX VERSION 1.4+C:\Users\aly_d\Desktop\LiveProject\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+606000837.index
+2812599024.index
+3071685049.index
+1509443169.index
+631544571.index
+2319762754.index
+2606737473.index
+4074278638.index
+325561240.index
+2523551982.index
