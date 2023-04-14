@@ -1,9 +1,0 @@
-INDEX VERSION 1.132
-C:\Users\aly_d\Desktop\LiveProject\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2523551982.index
-\NationOfBaka\src\main\java
-C:\Users\aly_d\Desktop\LiveProject\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2606737473.index
-\NationOfBaka\src\main\java
-C:\Users\aly_d\Desktop\LiveProject\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\325561240.index
-\NationOfBaka\src\main\java
-C:\Users\aly_d\Desktop\LiveProject\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4074278638.index
-\NationOfBaka\src\main\java
