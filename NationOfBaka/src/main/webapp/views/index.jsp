@@ -1,17 +1,21 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="UTF-8"%>
+	
+		<c:import url="/sliderHero/carousel.jsp"></c:import>
     <section>
         <div class="container">
             <h1>Bienvenue sur notre site Manga et Anime !</h1>
     
-            <p>Vous trouverez ici une large sélection de mangas, y compris des
+            <p>Vous trouverez ici une large sÃ©lection de mangas, y compris des
                 titres populaires tels que Naruto, One Piece, Bleach, Dragon Ball, et
-                bien d'autres encore. Parcourez notre catalogue pour découvrir de
+                bien d'autres encore. Parcourez notre catalogue pour dÃ©couvrir de
                 nouveaux titres ou utilisez notre barre de recherche pour trouver des
-                titres spécifiques.</p>
+                titres spÃ©cifiques.</p>
     
-            <p>Pour accéder à notre catalogue complet, vous devez vous
-                connecter à votre compte ou créer un compte gratuitement si vous n'en
-                avez pas encore. Une fois connecté, vous pouvez ajouter des mangas à
-                votre panier et passer une commande en toute sécurité.</p>
+            <p>Pour accÃ©der Ã  notre catalogue complet, vous devez vous
+                connecter Ã  votre compte ou crÃ©er un compte gratuitement si vous n'en
+                avez pas encore. Une fois connectÃ©, vous pouvez ajouter des mangas Ã 
+                votre panier et passer une commande en toute sÃ©curitÃ©.</p>
     
             <!-- <a href="connexion.html">Se connecter</a> | <a href="inscription.html">S'inscrire</a> -->
         </div>
@@ -22,10 +26,10 @@
                     alt="Manga and Anime">
             </div>
             <p>
-                Retrouvez ici les derniers chapitres de vos mangas préférés
-                ainsi que les épisodes des derniers anime à la mode.
+                Retrouvez ici les derniers chapitres de vos mangas prÃ©fÃ©rÃ©s
+                ainsi que les Ã©pisodes des derniers anime Ã  la mode.
             </p>
-            <h2>Nouveautés</h2>
+            <h2>NouveautÃ©s</h2>
             <div class="new-releases">
                 <div class="new-release">
                     <a href="https://sekai.one/"> <img

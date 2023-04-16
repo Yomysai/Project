@@ -30,7 +30,27 @@
 
 /* Template default CSS
 /*----------------------------------------*/
-
+ /* Ajouter l'animation à l'arrière-plan */
+    .modal-backdrop {
+      animation: modalBackdropAnim 1s infinite linear;
+      background-image: radial-gradient(circle, #000 0.25rem, transparent 0.25rem), radial-gradient(circle, #000 0.25rem, transparent 0.25rem);
+      background-size: calc(2 * 0.25rem) calc(2 * 0.25rem);
+      background-position: 0 0, calc(1.5 * 0.25rem) calc(1.5 * 0.25rem);
+    }
+	
+    /* Animation de l'arrière-plan */
+    @keyframes modalBackdropAnim {
+      0% {
+        background-position: 0 0, calc(1.5 * 0.25rem) calc(1.5 * 0.25rem);
+      }
+      100% {
+        background-position: calc(1.5 * 0.25rem) 0, 0 calc(1.5 * 0.25rem);
+      }
+    }
+    .modal-content{
+    
+    background-color: #232762a1;
+    }
 html,
 body {
 	height: 100%;
@@ -1716,10 +1736,10 @@ ol {
   Login
 -----------------------*/
 
-.login {
+/* .login {
 	padding-top: 130px;
 	padding-bottom: 120px;
-}
+} */
 
 .login__form {
 	position: relative;
@@ -1764,7 +1784,7 @@ ol {
 	width: 100%;
 	font-size: 15px;
 	color: #b7b7b7;
-	background: #ffffff;
+	background: #e53637;
 	border: none;
 	padding-left: 76px;
 }
