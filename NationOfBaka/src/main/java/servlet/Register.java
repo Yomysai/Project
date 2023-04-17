@@ -47,7 +47,6 @@ public class Register extends HttpServlet {
 		String pseudo = request.getParameter("nickname");
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
-		
 
 		System.out.println(pseudo);
 		System.out.println(email);
@@ -61,7 +60,7 @@ public class Register extends HttpServlet {
 		if (password == null || password.equalsIgnoreCase("")) {
 			request.setAttribute("msn", "Le password est un champ obligatoire.");
 			request.setAttribute("msnType", "KO");
-			doGet(request, response);
+			request.getRequestDispatcher("/views/register.jsp").forward(request, response);
 		} else {
 			regex = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,20}$";
 			p = Pattern.compile(regex);
@@ -70,15 +69,14 @@ public class Register extends HttpServlet {
 				request.setAttribute("msn",
 						"Le password doit être composé de chiffres, de lettres, de majuscules et de caractères spéciaux.");
 				request.setAttribute("msnType", "KO");
-				doGet(request, response);
+				request.getRequestDispatcher("/views/register.jsp").forward(request, response);
 			}
-
 		}
 
 		if (email == null || email.equalsIgnoreCase("")) {
 			request.setAttribute("msn", "Le email est un champ obligatoire.");
 			request.setAttribute("msnType", "KO");
-			doGet(request, response);
+			request.getRequestDispatcher("/views/register.jsp").forward(request, response);
 		} else {
 			regex = "^[A-Za-z0-9][A-Za-z0-9.-_]+[A-Za-z0-9][@][A-Za-z0-9][A-Za-z0-9.-_]+[A-Za-z0-9]?[\\.][A-Za-z0-9]{2,3}$";
 			p = Pattern.compile(regex);
@@ -87,30 +85,27 @@ public class Register extends HttpServlet {
 				request.setAttribute("msn",
 						"Vous devez saisir une adresse e-mail valide par exemple example@example.fr.");
 				request.setAttribute("msnType", "KO");
-				doGet(request, response);
+				request.getRequestDispatcher("/views/register.jsp").forward(request, response);
 			} else if (userDao.findByEmailB(email)) {
 				request.setAttribute("msn", "Vous avez déjà un compte avec cette adresse e-mail.");
 				request.setAttribute("msnType", "KO");
-				doGet(request, response);
+				request.getRequestDispatcher("/views/register.jsp").forward(request, response);
 			}
-
 		}
-
 		String pwd_with_bcrypt = BCrypt.hashpw(password, BCrypt.gensalt());
 
 		Beans.Role role = new Beans.Role(1, "Client");
 		Beans.User user = new Beans.User(pseudo, email, pwd_with_bcrypt, role);
-		
-			if (!userDao.create(user)) {
-				request.setAttribute("msn", "Le compte utilisateur a été créé avec succès.");
-				request.setAttribute("msnType", "OK");
-			} else {
-				request.setAttribute("msn", "Le compte d'utilisateur n'a pas pu être créé.");
-				request.setAttribute("msnType", "KO");
-				// request.getRequestDispatcher("views/register.jsp").forward(request,
-				// response);
-			}
-		doGet(request, response);
+
+		if (userDao.create(user)) {
+			request.setAttribute("msn", "Le compte utilisateur a été créé avec succès.");
+			request.setAttribute("msnType", "OK");
+			request.getRequestDispatcher("/views/register.jsp").forward(request, response);
+		} else {
+			request.setAttribute("msn", "Le compte d'utilisateur n'a pas pu être créé.");
+			request.setAttribute("msnType", "KO");
+			request.getRequestDispatcher("/views/register.jsp").forward(request, response);
+		}
 	}
 
 }

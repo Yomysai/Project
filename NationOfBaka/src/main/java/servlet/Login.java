@@ -54,7 +54,7 @@ public class Login extends HttpServlet {
 			User user = userDao.login(email,password);
 			if (user != null) {
 				HttpSession session = request.getSession(true);
-				session.setAttribute("userCurrent", user);
+				session.setAttribute("user", user);
 				response.sendRedirect("/NationOfBaka");
 			} else {
 				request.setAttribute("msn", "L'email ou le mot de passe n'est pas correct.");
