@@ -1,6 +1,8 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Locale.Category;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import Beans.User;
+import dao.CategorieDao;
 
 /**
  * Servlet implementation class Accueil
@@ -17,6 +20,7 @@ import Beans.User;
 @WebServlet(urlPatterns = {"/","/index"})
 public class Accueil extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	ArrayList<Category> listeCategory =new ArrayList<>();
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -30,6 +34,7 @@ public class Accueil extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		CategorieDao categoryDao = new CategorieDao();
 		HttpSession session = request.getSession(true);
 		User currentUser = (User) session.getAttribute("user");
 		
@@ -43,7 +48,7 @@ public class Accueil extends HttpServlet {
 		} else {	
 			pageLoad(request, response);
 		}
-//		request.getRequestDispatcher("/views/backOffice/dashboard.jsp").forward(request, response);
+		//request.getRequestDispatcher("/views/backOffice/dashboard.jsp").forward(request, response);
 	}
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

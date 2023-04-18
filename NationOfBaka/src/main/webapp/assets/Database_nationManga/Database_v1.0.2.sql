@@ -2,12 +2,6 @@
 DROP DATABASE IF EXISTS nationOfmanga;
 CREATE DATABASE IF NOT EXISTS nationOfmanga;
 USE nationOfmanga;
-select *FROM user where user.email=? and user.isActive=1;
-
-SELECT * FROM user  JOIN role ON user.role_id = role.id WHERE user.email = ? AND user.isActive = 1;
-select *, user.id as userId from user inner join role on user.role_id=role.id where user.email=? and user.isActive=1;
-select * from user JOIN role on user.role_id= role.id where role = ?and user.isActive = 1 ;
-
 
 -- Création de la table "User"
 DROP TABLE IF EXISTS User;
@@ -24,7 +18,8 @@ isActive BOOLEAN DEFAULT true
 DROP TABLE IF EXISTS categorie;
 CREATE TABLE categorie (
 id INT PRIMARY KEY AUTO_INCREMENT,
-nom VARCHAR(50) NOT NULL
+nom VARCHAR(50) NOT NULL,
+ isActive BOOLEAN DEFAULT true
 );
 
 -- Création de la table "book"
@@ -59,6 +54,10 @@ dateCom DATETIME,
 created_at DATETIME,
 role_id INT
 );
+CREATE TABLE genre (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  name ENUM('Action', 'Aventure', 'Comédie', 'Drame', 'Fantasy', 'Horreur', 'Mystère', 'Romance', 'Science-fiction', 'Tranche de vie', 'Thriller', 'Autre') NOT NULL
+)
 
 -- Création de la table "subcategory"
 DROP TABLE IF EXISTS subcategory;

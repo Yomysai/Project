@@ -13,7 +13,7 @@ public class Book {
 	private Status status;
 	private Date release_date;
 	private String type;
-	private Genre genres;
+	private Subcategory subcategories;
 	private User author;
 	private String artist;
 	private String synopsis;
@@ -35,7 +35,7 @@ public class Book {
 	 * @param status
 	 * @param release_date
 	 * @param type
-	 * @param genres
+	 * @param subcategories
 	 * @param author
 	 * @param artist
 	 * @param synopsis
@@ -43,7 +43,7 @@ public class Book {
 	 * @param created_at
 	 */
 	public Book(int id, String title, String auteur, int annee_publication, Categorie category_id,
-			String original_title, String origin, Status status, Date release_date, String type, Genre genres,
+			String original_title, String origin, Status status, Date release_date, String type, Subcategory subcategories,
 			User author, String artist, String synopsis, String cover_image, Date created_at) {
 		this.id = id;
 		this.title = title;
@@ -55,7 +55,7 @@ public class Book {
 		this.status = status;
 		this.release_date = release_date;
 		this.type = type;
-		this.genres = genres;
+		this.subcategories = subcategories;
 		this.author = author;
 		this.artist = artist;
 		this.synopsis = synopsis;
@@ -72,7 +72,7 @@ public class Book {
 	 * @param status
 	 * @param release_date
 	 * @param type
-	 * @param genres
+	 * @param subcategories
 	 * @param author
 	 * @param artist
 	 * @param synopsis
@@ -80,7 +80,7 @@ public class Book {
 	 * @param created_at
 	 */
 	public Book(String title, String auteur, int annee_publication, Categorie category_id, String original_title,
-			String origin, Status status, Date release_date, String type, Genre genres, User author, String artist,
+			String origin, Status status, Date release_date, String type, Subcategory subcategories, User author, String artist,
 			String synopsis, String cover_image, Date created_at) {
 		this.title = title;
 		this.auteur = auteur;
@@ -91,7 +91,7 @@ public class Book {
 		this.status = status;
 		this.release_date = release_date;
 		this.type = type;
-		this.genres = genres;
+		this.subcategories = subcategories;
 		this.author = author;
 		this.artist = artist;
 		this.synopsis = synopsis;
@@ -108,13 +108,13 @@ public class Book {
 	 * @param status
 	 * @param release_date
 	 * @param type
-	 * @param genres
+	 * @param subcategories
 	 * @param artist
 	 * @param synopsis
 	 * @param cover_image
 	 */
 	public Book(String title, String auteur, int annee_publication, Categorie category_id, String original_title,
-			String origin, Status status, Date release_date, String type, Genre genres, String artist, String synopsis,
+			String origin, Status status, java.util.Date release_date, String type, Subcategory subcategories, String artist, String synopsis,
 			String cover_image) {
 		this.title = title;
 		this.auteur = auteur;
@@ -123,12 +123,17 @@ public class Book {
 		this.original_title = original_title;
 		this.origin = origin;
 		this.status = status;
-		this.release_date = release_date;
+		this.release_date = (Date) release_date;
 		this.type = type;
-		this.genres = genres;
+		this.subcategories = subcategories;
 		this.artist = artist;
 		this.synopsis = synopsis;
 		this.cover_image = cover_image;
+	}
+	public Book(String title, String auteur, int annee_publication2, int category_id2, String original_title,
+			String origin, Status status, Date parsedReleaseDate, String type, Subcategory subcategory, String artist,
+			String synopsis, String cover_image, String created_at) {
+		// TODO Auto-generated constructor stub
 	}
 	/**
 	 * @return the id
@@ -253,14 +258,14 @@ public class Book {
 	/**
 	 * @return the genres
 	 */
-	public Genre getGenres() {
-		return genres;
+	public Subcategory getGenres() {
+		return subcategories;
 	}
 	/**
-	 * @param genres the genres to set
+	 * @param subcategories the genres to set
 	 */
-	public void setGenres(Genre genres) {
-		this.genres = genres;
+	public void setGenres(Subcategory subcategories) {
+		this.subcategories = subcategories;
 	}
 	/**
 	 * @return the author

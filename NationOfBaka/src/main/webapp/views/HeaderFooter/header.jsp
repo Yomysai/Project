@@ -39,26 +39,54 @@
                             <nav class="header__menu mobile-menu">
                                 <ul>
                                     <li class="active"><a href="index">Homepage</a></li>
-                                    <li>
-                                        <a href="categories">Categories <span class="arrow_carrot-down"></span></a>
+                                     <!-- <li class="nav-item"><a class="text-truncate nav-link"href="/mangas/"><i class="fa-solid fa-books"></i>Mangas</a></li> -->
+                                     <li>
+                                        <a href="livre">LIVRES<span class="arrow_carrot-down"></span></a>
                                         <ul class="dropdown">
                                             <li><a href="categories">Categories</a></li>
+                                            <c:if test="${( not empty user) || (user.roleId.role == 'Admin')}"> 
+                                            <li><a href="bookAdd">bookAdd</a></li>
+                                            </c:if>
+                                            <li class="nav-item"><a class="text-truncate nav-link"href="/mangas/"><i class="fa-solid fa-books"></i>Mangas</a></li>
+                                            <li><a href="bookAdd">listes Manga</a></li>
                                             <li><a href="anime-details">Anime Details</a></li>
                                             <li><a href="anime-watching">Anime Watching</a></li>
                                             <li><a href="./blog-details.html">Blog Details</a></li>
-                                            <li><a href="./signup.html">Sign Up</a></li>
-                                            <li><a href="./login.html">Login</a></li>
+                                            <li><a href="register">Sign Up</a></li>
+                                            <li><a data-toggle="modal" data-target="#myModal" class="primary-btn">Login</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="./blog.html">Our Blog</a></li>
                                     <li><a href="#">Contacts</a></li>
                                 </ul>
+                               <%--  <ul>
+                                  <li class="active"><a href="index">Homepage</a></li>
+                                    <li>
+                                        <a href="livre">LIVRES<span class="arrow_carrot-down"></span></a>
+                                        <ul class="dropdown">
+                                            <li><a href="categories">Categories</a></li>
+                                            <c:if test="${( not empty user) || (user.roleId.role == 'Admin')}"> 
+                                            <li><a href="bookAdd">bookAdd</a></li>
+                                            </c:if>
+                                            <li class="nav-item"><a class="text-truncate nav-link"href="/mangas/"><i class="fa-solid fa-books"></i>Mangas</a></li>
+                                            <li><a href="bookAdd">listes Manga</a></li>
+                                            <li><a href="anime-details">Anime Details</a></li>
+                                            <li><a href="anime-watching">Anime Watching</a></li>
+                                            <li><a href="./blog-details.html">Blog Details</a></li>
+                                            <li><a href="register">Sign Up</a></li>
+                                            <li><a data-toggle="modal" data-target="#myModal" class="primary-btn">Login</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="./blog.html">Our Blog</a></li>
+                                    <li><a href="#">Contacts</a></li>
+                                </ul> --%>
                                 <form class="d-flex" role="search">
-                                    <select class="form-select rounded-end-0" style="z-index: 1050;">
-                                        <option selected value="0">Part Genre</option>
+                                    <select  class="form-select rounded-end-0" style="z-index: 1050;">
+                                        <option selected value="0">Categories</option>
                                         <c:forEach items="${categoriesList}" var="category">
                                             <option value="${category.id}">
-                                                <c:out value="${category.category}" />
+                                                <c:out value="${category.getCategory()}" />
+                                                <%-- <c:out value="${}" /> --%>
                                             </option>
                                         </c:forEach>
                                     </select>

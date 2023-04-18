@@ -30,6 +30,114 @@
 
 /* Template default CSS
 /*----------------------------------------*/
+#searchForm {
+	width: 30% !important;
+}
+
+.leaderboard .list-group-item span, .noteinfo {
+	font-weight: 600
+}
+
+.noteinfo {
+	margin: 2px 10px;
+	font-size: 8px
+}
+
+.leaderboard .list-group-item {
+	margin: 2px 8px;
+	border-radius: 14px !important
+}
+
+.leaderboard .doninfo {
+	font-size: 7px;
+	font-weight: 100
+}
+
+.gold-border {
+	border: 2px solid #ffc758 !important;
+	background-color: #ffc75829
+}
+
+.gold-border .order, .gold-border i {
+	color: #ffc758
+}
+
+.silver-border {
+	border: 2px solid #a5a5a5 !important;
+	background-color: #e8ecf329
+}
+
+.silver-border .order, .silver-border i {
+	color: #a5a5a5
+}
+
+.bronze-border {
+	border: 2px solid #bc8f8f !important;
+	background-color: #ce9c9c0d
+}
+
+.bronze-border .order, .bronze-border i {
+	color: #bc8f8f
+}
+
+.grey-border {
+	border: 2px solid #cfcfcf !important
+}
+
+.grey-border i {
+	color: #008000
+}
+
+.donate-text {
+	font-family: Acme;
+	font-size: 1rem;
+	padding: 16px 0px
+}
+
+/* .nav-item {
+	border-right: 1px solid rgba(204, 204, 204, 0.51);
+} */
+
+.nav-item .fa-solid {
+	margin-right: 5px;
+}
+
+.nav-item .fa-heart {
+	color: red !important;
+}
+
+.list-group-item .row {
+	display: flex;
+	align-items: center;
+}
+
+.list-group-item .col-auto {
+	flex-shrink: 0;
+}
+
+.list-group-item img {
+	max-height: 60px;
+}
+
+.list-group-item h6 {
+	margin-bottom: 0;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	overflow: hidden;
+}
+
+.mainTitle {
+	margin-bottom: 0;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	overflow: hidden;
+}
+.nice-select.open .list{
+	display: grid;
+}
+
  /* Ajouter l'animation à l'arrière-plan */
     .modal-backdrop {
       animation: modalBackdropAnim 1s infinite linear;

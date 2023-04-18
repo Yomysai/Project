@@ -265,6 +265,3 @@ $(".form-controlV").on("keyup", function() {
 	
 });
 
-
-
-
