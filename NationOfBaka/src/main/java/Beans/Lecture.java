@@ -7,6 +7,7 @@ public class Lecture {
 	private int user_id;
 	private int role_id;
 	private int book_id;
+	private int chapitre; 
 	private int page_number;
 	private Date last_read_at;
 	private Date created_at;

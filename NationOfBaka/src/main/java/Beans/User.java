@@ -20,6 +20,15 @@ public class User {
 		 */
 		public User() {
 		}
+		/*
+		 * constructor only for dev mock(to be deleted after developpement
+		 */
+		public User(String email, Role role) {
+			
+			this.email = email;
+			this.roleId = role;
+		}
+
 		/**
 		 * @param nickname
 		 * @param email
