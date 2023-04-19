@@ -13,7 +13,7 @@ public enum Subcategory {
     TRANCHE_DE_VIE("Tranche de vie"),
     THRILLER("Thriller"),
     POLICIER("Policier"),
-    HISTORIQUE("Historique"),
+    //HISTORIQUE("Historique"),
     PSCHOLOGIQUE("'Pschologique"),
     AUTRE("Autre");
 	//HUMOUR("Humour"),
@@ -37,8 +37,8 @@ public enum Subcategory {
 		this.name = name;
 		this.category_id = category_id;
 	}
-	private Subcategory(String  value) {
-    	this.name = value;
+	private Subcategory(String  name) {
+    	this.name = name;
     }
     /**
      * @param id
@@ -69,8 +69,8 @@ public enum Subcategory {
 	/**
 	 * @param name the name to set
 	 */
-	public void setName(String  value) {
-		this.name =  value;
+	public void setName(String  name) {
+		this.name =  name;
 	}
 	/**
 	 * @return the category_id
@@ -84,9 +84,6 @@ public enum Subcategory {
 	public void setCategory_id(Categorie category_id) {
 		this.category_id = category_id;
 	}
-	public static Subcategory fromValue(String name2) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 	
 }

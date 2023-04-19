@@ -52,11 +52,13 @@ public class BookAdd extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         HttpSession session = request.getSession();
+        
         ArrayList<Categorie> listCategories = new ArrayList<>();
         ArrayList<Book> listBooks = new ArrayList<>();
         ArrayList<Beans.Subcategory> subcategories = new ArrayList<>();
+        
         listCategories = categoryDao.read();
-        subcategories =  subcategoryDao.read();
+        //subcategories =  subcategoryDao.read();
         listBooks =  bookDao.read();
 
         // Convertir les constantes d'énumération en noms de chaînes de caractères
@@ -67,7 +69,7 @@ public class BookAdd extends HttpServlet {
 
         session.setAttribute("categoriesList", listCategories);
         session.setAttribute("listBooks", listBooks);
-        session.setAttribute("subcategoriesList", subcategoryNames); // Utiliser les noms de chaînes de caractères des sous-catégories
+      //  session.setAttribute("subcategoriesList", subcategoryNames); // Utiliser les noms de chaînes de caractères des sous-catégories
 
         request.getRequestDispatcher("/views/booksManage/bookAdd.jsp").forward(request, response);
     }

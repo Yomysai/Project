@@ -10,10 +10,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import org.apache.catalina.webresources.Cache;
-
 import Beans.Book;
 import Beans.Categorie;
+import Beans.Status;
 
 /**
  * @author aly_d
@@ -27,7 +26,7 @@ public class BookDao implements IDAO<Book>{
 	@Override
 	public boolean create(Book book) {
 		try {
-			 sql = connect.prepareStatement("INSERT INTO book (title,auteur,annee_publication,category_id,original_title,origin,status_id,release_date,type,genre_id,author_id,artist,synopsis,cover_image,created_at) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,NOW(?))");
+			 sql = connect.prepareStatement("INSERT INTO book (title,auteur,annee_publication,category_id,original_title,origin,status_id,release_date,type,artist,synopsis,cover_image,created_at) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,now())");
 
 			    sql.setString(1, book.getTitle());
 			    sql.setString(2, book.getAuteur());
@@ -38,8 +37,8 @@ public class BookDao implements IDAO<Book>{
 			    sql.setInt(7, book.getStatus().getId());
 			    sql.setDate(8, book.getRelease_date());
 			    sql.setString(9, book.getType());
-			    sql.setInt(10, book.getGenres().getId());
-			    sql.setInt(11, book.getAuthor().getId());
+			   // sql.setInt(10, book.getGenres().getId());
+			   // sql.setInt(11, book.getAuthor().getId());
 			    sql.setString(12, book.getArtist());
 			    sql.setString(13, book.getSynopsis());
 			    sql.setString(14, book.getCover_image());
@@ -59,11 +58,15 @@ public class BookDao implements IDAO<Book>{
 
 	@Override
 	public ArrayList<Book> read() {
-	    ArrayList<Book> books = new ArrayList<>();
+	    ArrayList<Book> listBook = new ArrayList<>();
 	    
 	    try {
-	        sql = connect.prepareStatement("SELECT * FROM book WHERE id = ?");
-	        sql.setString(1, "id");
+	        sql = connect.prepareStatement("SELECT *,book.id as bookID FROM book "
+	        		+ "inner join user ON book.author_id = user.id  "
+	        		+ "inner join status ON book.status_id =status.id "
+	        		+ "inner join categorie ON book.category_id = categorie.id WHERE book.id ;");
+	        System.out.println(sql);
+	        
 	        ResultSet rs = sql.executeQuery(); // Exécuter la requête SQL et obtenir le résultat dans un ResultSet
 	        
 	        while (rs.next()) {
@@ -80,15 +83,20 @@ public class BookDao implements IDAO<Book>{
 	            String synopsis = rs.getString("synopsis");
 	            String cover_image = rs.getString("cover_image");
 	            Date created_at = rs.getDate("created_at");
-	        
+	            Status status =new Status(status_id);
+	            Categorie categorie = new Categorie(category_id);
 	            
+	            Date release_date = rs.getDate("release_date");
+//	            System.out.println(id+"---------"+ title+"---"+auteur+"-------"+annee_publication+"------"+ categorie+"------"+ original_title+"-------"+ origin+"---------"+
+//	                    status+"----"+type+"-----"+ artist+"------"+synopsis+"-------"+ cover_image+"--------"+ created_at +"--------"+ " Insertion de book faite !!!");
+//	            
+	           
 	            // Créer un objet Book à partir des données récupérées
-	            Book book = new Book(id, title, auteur, annee_publication, category_id, original_title, origin,
-	                    status_id, type, artist, synopsis, cover_image, created_at);
+	            Book book = new Book(id, title, auteur, annee_publication, categorie, original_title, origin,
+	                    status,release_date, type, artist, synopsis, cover_image, created_at);
 	            
 	            // Ajouter l'objet Book à la liste des livres
-	            books.add(book);
-	            System.out.println(book + " Insertion de book faite !!!");
+	            listBook.add(book);
 	        }
 	        
 	    } catch (SQLException e) {
@@ -97,7 +105,7 @@ public class BookDao implements IDAO<Book>{
 	    }
 
 	    // Retourner la liste des livres
-	    return books;
+	    return listBook;
 	}
 
 

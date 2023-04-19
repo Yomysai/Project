@@ -135,10 +135,42 @@ public class Book {
 			String synopsis, String created_at) {
 		// TODO Auto-generated constructor stub
 	}
-	public Book(int id, String title, String auteur, int annee_publication, int category_id,
-			String original_title, String origin, int status_id, String type, String artist, String synopsis,
-			String cover_image, Date created_at) {
-		// TODO Auto-generated constructor stub
+	
+	
+	
+	/**
+	 * @param id
+	 * @param title
+	 * @param auteur
+	 * @param annee_publication
+	 * @param category_id
+	 * @param original_title
+	 * @param origin
+	 * @param status
+	 * @param release_date
+	 * @param type
+	 * @param artist
+	 * @param synopsis
+	 * @param cover_image
+	 * @param created_at
+	 */
+	public Book(int id, String title, String auteur, int annee_publication, Categorie category_id,
+			String original_title, String origin, Status status, Date release_date, String type, String artist,
+			String synopsis, String cover_image, Date created_at) {
+		this.id = id;
+		this.title = title;
+		this.auteur = auteur;
+		this.annee_publication = annee_publication;
+		this.category_id = category_id;
+		this.original_title = original_title;
+		this.origin = origin;
+		this.status = status;
+		this.release_date = release_date;
+		this.type = type;
+		this.artist = artist;
+		this.synopsis = synopsis;
+		this.cover_image = cover_image;
+		this.created_at = created_at;
 	}
 	/**
 	 * @return the id

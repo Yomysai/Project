@@ -25,9 +25,7 @@ public class GenreDao implements IDAO<Subcategory> {
 	@Override
 	public ArrayList<Subcategory> read() {
 	    ArrayList<Subcategory> subcategories = new ArrayList<>();
-	    // Code pour se connecter à la base de données et exécuter la requête de lecture
-	    // ...
-
+	 
 	    try {
 	          // Requête de lecture pour récupérer les sous-catégories
 	        sql = connect.prepareStatement("SELECT * FROM subcategory");
