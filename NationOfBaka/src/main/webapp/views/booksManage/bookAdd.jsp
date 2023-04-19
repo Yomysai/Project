@@ -466,18 +466,40 @@
 				        </select><br>
 				            <!-- Autres options de catégories -->
 				        <label for="status_id">Statut :</label>
+				        
 				        <select id="status_id" name="status_id" required>
 				            <option value="1">En cours</option>
 				            <option value="2">Terminé</option>
 				            
 				            
 				            <!-- Autres options de statuts -->
-				        </select><br>
+				        </select>
+				         <%--  <select  class="form-select rounded-end-0"name="status_id" required style="z-index: 1050;">
+                            <!-- Dans le fichier JSP -->
+							<c:forEach items="${subcategoriesList}" var="subcategory">
+							  <c:set var="subcategoryObj" value="${subcategory}" /> <!-- Stocker l'objet Subcategory dans une variable -->
+							  <option value="${subcategory.id}">
+							    <c:out value="${subcategory.getName()}" />
+							  </option>
+							</c:forEach>
+
+                         </select> --%>
+                         <label for="subcategory">Sous-catégorie :</label>
+					        <select class="form-select rounded-end-0" name="subcategory" required style="z-index: 1050;">
+					            <c:forEach items="${subcategoriesList}" var="subcategory">
+					                <c:set var="subcategoryObj" value="${subcategory}" /> <!-- Stocker l'objet Subcategory dans une variable -->
+					                <option value="${subcategory.id}">
+					                    <c:out value="${subcategory.getName()}" />
+					                </option>
+					            </c:forEach>
+					        </select>
+				        
+				        <br>
 				        
 				        <label for="genre_id">Genre :</label>
 				        
 				            <!-- Autres options de genres -->
-				         <select  class="form-select rounded-end-0" style="z-index: 1050;">
+				         <select  class="form-select rounded-end-0"id="genre_id" name="genre_id" required style="z-index: 1050;">
                             <option selected value="0">Genre</option>
                               <c:forEach items="${categoriesList}" var="category">
                                 <option value="${category.id}">
@@ -518,6 +540,88 @@
 				      </div>
 						
 				    </form>
+				    
+				
+					    <h1>Liste des livres</h1>
+					    <table>
+					        <tr>
+					            <th>Titre</th>
+					            <th>Auteur</th>
+					            <th>Genre</th>
+					        </tr>
+					        <c:forEach items="${listBooks}" var="book">
+					            <tr>
+					                <td><c:out value="${book.title}" /></td>
+					                <td><c:out value="${book.author}" /></td>
+					                <td><c:out value="${book.categorie}" /></td>
+					            </tr>
+					        </c:forEach>
+					    </table> 
+				    <h1>Liste des livres</h1>
+				    <form action="/mon-application/ajouter-livre" method="post">
+				        <!-- Autres options de genres -->
+				        <select class="form-select rounded-end-0" id="genre_id" name="genre_id" required style="z-index: 1050;">
+				            <option selected value="0">Genre</option>
+				            <c:forEach items="${categoriesList}" var="category">
+				                <option value="${category.id}">
+				                    <c:out value="${category.category}" />
+				                </option>
+				            </c:forEach>
+				        </select>
+				        <!-- Liste des livres -->
+				        <select class="form-select rounded-end-0" id="book_id" name="book_id" required style="z-index: 1050;">
+				            <option selected value="0">Livre</option>
+				            <c:forEach items="${listBooks}" var="book">
+				                <option value="${book.id}">
+                    				<c:out value="${book.title}" /> - <c:out value="${book.auteur}" /> - <c:out value="${book.annee_publication}" /> - <c:out value="${book.original_title}" /> -
+                    				 <c:out value="${book.origin}" /> - <c:out value="${book.status_id}" /> - <c:out value="${book.release_date}" /> - <c:out value="${book.type}" /> -
+                    				  <c:out value="${book.subcategory_id}" /> - <c:out value="${book.author_id}" /> - <c:out value="${book.artist}" /> - <c:out value="${book.synopsis}" /> - 
+                    				  <c:out value="${book.cover_image}" /> - <c:out value="${book.created_at}" />
+                				</option>
+				            </c:forEach>
+				        </select>
+				        <input type="submit" value="Ajouter" />
+				    </form>
+			    
+
+
+				    <h1>Books List</h1>
+				    <table>
+				        <tr>
+				            <th>ID</th>
+				            <th>Title</th>
+				            <th>Auteur</th>
+				            <th>Année de publication</th>
+				            <th>Catégorie</th>
+				            <th>Titre original</th>
+				            <th>Origine</th>
+				            <th>Statut</th>
+				            <th>Type</th>
+				            <th>Artiste</th>
+				            <th>Synopsis</th>
+				            <th>Couverture</th>
+				            <th>Date de création</th>
+				        </tr>
+				        <c:forEach var="book" items="${listBooks}">
+				            <tr>
+				                <td>${book.id}</td>
+				                <td>${book.title}</td>
+				                <td>${book.auteur}</td>
+				                <td>${book.anneePublication}</td>
+				                <td>${book.category}</td>
+				                <td>${book.originalTitle}</td>
+				                <td>${book.origin}</td>
+				                <td>${book.status}</td>
+				                <td>${book.type}</td>
+				                <td>${book.artist}</td>
+				                <td>${book.synopsis}</td>
+				                <td>${book.coverImage}</td>
+				                <td>${book.createdAt}</td>
+				            </tr>
+				        </c:forEach>
+				    </table>
+
+
 				</div>
 
 			</div>

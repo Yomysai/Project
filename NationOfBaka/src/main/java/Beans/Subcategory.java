@@ -2,15 +2,21 @@ package Beans;
 
 public enum Subcategory {
     ACTION("Action"),
+    COMÉDIE("Comédie"),
+    DRAME("Drame"),
+    FANTASY("Fantasy"),
+    HORREUR("Horreur"),
+    MYSTERE("Mystère"),
     AVENTURE("Aventure"),
     ROMANCE("Romance"),
-    SCIENCE_FICTION("Science Fiction"),
-    MYSTERE("Mystère"),
-    HORREUR("Horreur"),
-    DRAME("Drame"),
-    HUMOUR("Humour"),
+    SCIENCE_FICTION("Science_fiction"),
+    TRANCHE_DE_VIE("Tranche de vie"),
+    THRILLER("Thriller"),
+    POLICIER("Policier"),
     HISTORIQUE("Historique"),
-    FANTASY("Fantasy");
+    PSCHOLOGIQUE("'Pschologique"),
+    AUTRE("Autre");
+	//HUMOUR("Humour"),
 	
 	private int id;
     private String name;
@@ -26,19 +32,19 @@ public enum Subcategory {
 	 * @param name
 	 * @param category_id
 	 */
-	private Subcategory(int id, String name, Categorie category_id) {
+	private Subcategory(int id, String  name, Categorie category_id) {
 		this.id = id;
 		this.name = name;
 		this.category_id = category_id;
 	}
-	private Subcategory(String name) {
-    	this.name = name;
+	private Subcategory(String  value) {
+    	this.name = value;
     }
     /**
      * @param id
      * @param genre
      */
-    private Subcategory(int id, String name) {
+    private Subcategory(int id, String  name) {
     	this.id = id;
     	this.name = name;
     }
@@ -63,8 +69,8 @@ public enum Subcategory {
 	/**
 	 * @param name the name to set
 	 */
-	public void setName(String name) {
-		this.name = name;
+	public void setName(String  value) {
+		this.name =  value;
 	}
 	/**
 	 * @return the category_id
@@ -78,4 +84,9 @@ public enum Subcategory {
 	public void setCategory_id(Categorie category_id) {
 		this.category_id = category_id;
 	}
+	public static Subcategory fromValue(String name2) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
 }

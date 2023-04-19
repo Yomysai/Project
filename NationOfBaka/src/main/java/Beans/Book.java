@@ -130,9 +130,14 @@ public class Book {
 		this.synopsis = synopsis;
 		this.cover_image = cover_image;
 	}
-	public Book(String title, String auteur, int annee_publication2, int category_id2, String original_title,
+	public Book(String title, String auteur, int annee_publication, int category_id, String original_title,
 			String origin, Status status, Date parsedReleaseDate, String type, Subcategory subcategory, String artist,
-			String synopsis, String cover_image, String created_at) {
+			String synopsis, String created_at) {
+		// TODO Auto-generated constructor stub
+	}
+	public Book(int id, String title, String auteur, int annee_publication, int category_id,
+			String original_title, String origin, int status_id, String type, String artist, String synopsis,
+			String cover_image, Date created_at) {
 		// TODO Auto-generated constructor stub
 	}
 	/**
