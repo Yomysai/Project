@@ -1,5 +1,6 @@
 package servlet;
 
+import java.io.File;
 import java.io.IOException;
 import java.sql.Date;
 import java.text.ParseException;
@@ -81,7 +82,7 @@ public class BookAdd extends HttpServlet {
         int genre_id = Integer.parseInt(request.getParameter("genre_id"));
         String artist = request.getParameter("artist");
         String synopsis = request.getParameter("synopsis");
-        String cover_image = request.getParameter("cover_image");
+        //String cover_image = request.getParameter("cover_image");
         String created_at = request.getParameter("created_at");
 
         // Convertir les données au format approprié
@@ -93,8 +94,25 @@ public class BookAdd extends HttpServlet {
             e.printStackTrace();
         }
       //Recuperation de l'image upload depuis le formulaire via le name 
-      		Part file=request.getPart("image");
-      		
+      		Part file=request.getPart("cover_image");
+      	//Recuperation du nom de l'image 
+    		String filename = file.getSubmittedFileName();
+    		System.out.println("Recuperation du nom de l'image" +filename);
+    		/*Ici, je recupere juste le nom de l'image (sans l'extention: .png, .jpeg, ...) --> filename.substring(0,filename.indexOf('.'))
+    		 * je concat avec le titre pour garantir l'unicité de l'image
+    		 */
+            String finalFileName = filename.substring(0,filename.indexOf('.'))+filename.substring(filename.indexOf('.'), filename.length());
+            //RETIRER LES ESPACES DANS LE TITRE
+            finalFileName = finalFileName.trim().replaceAll(" ", "_");
+            System.out.println("RETIRER LES ESPACES DANS LE TITRE" +finalFileName);
+         // Ici, je stock sur mon serveur dans un dossier temporaire géré par eclipse
+            String chemin = getServletContext().getRealPath("")+"assets"+File.separator+"uploads"; 
+            
+            File folder = new File(chemin);
+    		
+    		if (!folder.exists()) {
+    			folder.mkdirs();
+    		}
       		
         
         
@@ -109,13 +127,13 @@ public class BookAdd extends HttpServlet {
 
             if (subcategory != null && status != null) {
                 // Créer un objet Book avec les informations récupérées
-                Book book = new Book(title, auteur, annee_publication, category_id, original_title, origin, status, (Date) parsedReleaseDate, type, subcategory, artist, synopsis, cover_image, created_at);
+                Book book = new Book(title, auteur, annee_publication, category_id, original_title, origin, status, (Date) parsedReleaseDate, type, subcategory, artist, synopsis, chemin, created_at);
 
                 // Appeler la méthode create du bookDao pour créer un nouveau livre dans la base de données
                 if (bookDao.create(book)) {
                     // Le livre a été créé avec succès
                     // Faire les actions nécessaires (par exemple, redirection, affichage de message de succès, etc.)
-                    // ...
+                   
                 } else {
                     // Échec de la création du livre dans la base de données
                     // Faire les actions nécessaires pour gérer l'erreur (par exemple, affichage de message d'erreur, journalisation, etc.)

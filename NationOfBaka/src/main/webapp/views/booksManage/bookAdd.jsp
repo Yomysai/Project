@@ -433,7 +433,7 @@
 						<h3>Ajout d'un nouveau livre</h3>
 						<h5>LISTE DES CHAPITRES</h5>
 					</div>
-				    <form action="BookServlet" method="post">
+				    <form action="BookServlet"method="post" enctype="multipart/form-data">
 					
 						<c:if test="${not empty utilisateur}">
 								<input type="hidden"class="form-control" name="id"  value="<c:if test="${ not empty utilisateur}"> <c:out value="${utilisateur.id_user }"/> </c:if>">   <!--  -->
@@ -449,37 +449,74 @@
 				        <input type="text" id="original_title" name="original_title"value="<c:if test="${ not empty utilisateur}"> <c:out value="${utilisateur.id_user }"/> </c:if>" required><br>
 				        <label for="origin">Origine :</label>
 				        <input type="text" id="origin" name="origin" value="<c:if test="${ not empty utilisateur}"> <c:out value="${utilisateur.id_user }"/> </c:if>"required><br>
+				        
+				          <div class="input-group mb-3">
+				        <label for="release_date">Date de sortie :</label>
+				        <input type="date" id="release_date" name="release_date" required>
+				        <hr>
+				        <label for="type">Type :</label>
+				        <input type="text" id="type" name="type" required>
+				        </div>
+				         <div class="input-group mb-3">
 				        <label for="category_id">Catégorie :</label>
 				        <select id="category_id" name="category_id" required>
 				            <option value="1">Shonen</option>
 				            <option value="2">Shojo</option>
 				            <option value="3">Seinen</option>
-				            <!-- Autres options de catégories -->
 				        </select><br>
+				            <!-- Autres options de catégories -->
 				        <label for="status_id">Statut :</label>
 				        <select id="status_id" name="status_id" required>
 				            <option value="1">En cours</option>
 				            <option value="2">Terminé</option>
+				            
+				            
 				            <!-- Autres options de statuts -->
 				        </select><br>
-				        <label for="release_date">Date de sortie :</label>
-				        <input type="date" id="release_date" name="release_date" required><br>
-				        <label for="type">Type :</label>
-				        <input type="text" id="type" name="type" required><br>
+				        
 				        <label for="genre_id">Genre :</label>
-				        <select id="genre_id" name="genre_id" required>
+				        
+				            <!-- Autres options de genres -->
+				         <select  class="form-select rounded-end-0" style="z-index: 1050;">
+                            <option selected value="0">Genre</option>
+                              <c:forEach items="${categoriesList}" var="category">
+                                <option value="${category.id}">
+                                  <c:out value="${category.getCategory()}" />
+                                  <%-- <c:out value="${}" /> --%>
+                               </option>
+                             </c:forEach>
+                         </select>
+                         </div>
+				        <hr>
+				        <!-- <select id="genre_id" name="genre_id" required>
 				            <option value="1">Action</option>
 				            <option value="2">Romance</option>
 				            <option value="3">Fantasy</option>
-				            <!-- Autres options de genres -->
-				        </select><br>
-				        <label for="artist">Artiste :</label>
-				        <input type="text" id="artist" name="artist" required><br>
-				        <label for="synopsis">Synopsis :</label><br>
-				        <textarea id="synopsis" name="synopsis" rows="5" cols="30" required></textarea><br>
-				        <label for="cover_image">Image de couverture :</label>
-				        <input type="text" id="cover_image" name="cover_image" required><br>
+				        </select> -->
+				        <br>
+						  <label for="artist" class="form-label">Artiste :</label>
+				        <div class="mb-3">
+						 <input type="text" class="form-control" name="artist" placeholder="Entrez l'Artist *" value="${article.resume }">
+						</div>
+				       <br>
+				        <div class="mb-3">
+						  <label for="synopsis" class="form-label">synopsis :</label>
+						 <textarea name="synopsis" class="form-control" rows="7" placeholder="Entrez votre contenu *" >
+						 ${article.contenu }
+						 </textarea>
+						</div>
+				        <div class="input-group mb-3">
+						<!--   <label for="cover_image" class="form-label">Image :</label> -->
+						  <img alt="" src="assets/uploads/${article.image }" width="200">
+						  <label class="input-group-text" for="inputGroupFile01">Changer l'image</label>
+						  <input type="file" class="form-control" id="inputGroupFile01" name="cover_image" required="required" value="${article.image }">
+						</div><br>
+						 <div class="modal-footer">
+				        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+				        <button type="submit" class="btn btn-primary">Ajouter</button>
 				        <input type="submit" value="Inscrire le livre">
+				      </div>
+						
 				    </form>
 				</div>
 

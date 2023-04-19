@@ -16,7 +16,22 @@ public enum Subcategory {
     private String name;
     private Categorie category_id;
 
-    private Subcategory(String name) {
+    /**
+	 * 
+	 */
+	private Subcategory() {
+	}
+	/**
+	 * @param id
+	 * @param name
+	 * @param category_id
+	 */
+	private Subcategory(int id, String name, Categorie category_id) {
+		this.id = id;
+		this.name = name;
+		this.category_id = category_id;
+	}
+	private Subcategory(String name) {
     	this.name = name;
     }
     /**

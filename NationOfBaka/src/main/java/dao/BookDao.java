@@ -23,7 +23,7 @@ public class BookDao implements IDAO<Book>{
 	@Override
 	public boolean create(Book book) {
 		try {
-		    sql = connect.prepareStatement("INSERT INTO book (title,auteur,annee_publication,category_id,original_title,origin,status_id,release_date,type,genre_id,author,artist,synopsis,cover_image,created_at) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,NOW(?))");
+		    sql = connect.prepareStatement("INSERT INTO book (title,auteur,annee_publication,category_id,original_title,origin,status_id,release_date,type,genre_id,author_id,artist,synopsis,cover_image,created_at) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,NOW(?))");
 
 		    sql.setString(1, book.getTitle());
 		    sql.setString(2, book.getAuteur());

@@ -12,6 +12,7 @@ public class GenreDao implements IDAO<Subcategory> {
 	Connection connect = MyConnecte.getConnect();
 	PreparedStatement sql;
 	ResultSet rs;
+	
 
 
 	@Override
@@ -22,9 +23,21 @@ public class GenreDao implements IDAO<Subcategory> {
 
 	@Override
 	public ArrayList<Subcategory> read() {
-		// TODO Auto-generated method stub
-		return null;
+		Subcategory subcategory = new Subcategory();
+		ArrayList<Subcategory> subcategories =new ArrayList<>();
+		try {
+			sql = connect.prepareStatement("SELECT * FROM subcategory");
+			rs = sql.executeQuery();
+			while(rs.next()) {
+			Subcategory	subcategory = new Subcategory(rs.getInt("id"), rs.getString("name"));
+				subcategories.add(Subcategory);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return subcategories;
 	}
+	
 
 	@Override
 	public boolean update(Subcategory subcategory) {
