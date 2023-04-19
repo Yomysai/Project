@@ -12,6 +12,7 @@ public class GenreDao implements IDAO<Subcategory> {
 	Connection connect = MyConnecte.getConnect();
 	PreparedStatement sql;
 	ResultSet rs;
+	
 
 
 	@Override
@@ -20,11 +21,31 @@ public class GenreDao implements IDAO<Subcategory> {
 		return false;
 	}
 
+	
 	@Override
 	public ArrayList<Subcategory> read() {
-		// TODO Auto-generated method stub
-		return null;
+	    ArrayList<Subcategory> subcategories = new ArrayList<>();
+	 
+	    try {
+	          // Requête de lecture pour récupérer les sous-catégories
+	        sql = connect.prepareStatement("SELECT * FROM subcategory");
+	        rs = sql.executeQuery();
+
+	        while (rs.next()) {
+	            int id = rs.getInt("id");
+	            String name = rs.getString("name");
+	            Subcategory subcategory = Subcategory.valueOf(name); // Convertir le nom de la sous-catégorie en valeur d'énumération
+	            subcategories.add(subcategory);
+	        }
+
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+
+	    return subcategories;
 	}
+
+	
 
 	@Override
 	public boolean update(Subcategory subcategory) {
@@ -60,23 +81,7 @@ public class GenreDao implements IDAO<Subcategory> {
 	    } catch (Exception e) {
 	        e.printStackTrace();
 	        System.out.println("Recherche findById KO");
-	    } finally {
-	        // Fermer les objets PreparedStatement et ResultSet
-	        if (rs != null) {
-	            try {
-	                rs.close();
-	            } catch (SQLException e) {
-	                e.printStackTrace();
-	            }
-	        }
-	        if (sql != null) {
-	            try {
-	                sql.close();
-	            } catch (SQLException e) {
-	                e.printStackTrace();
-	            }
-	        }
-	    }
+	    } 
 	    return null;
 	}
 

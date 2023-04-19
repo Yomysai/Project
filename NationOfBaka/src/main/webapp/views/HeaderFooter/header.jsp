@@ -43,12 +43,12 @@
                                      <li>
                                         <a href="livre">LIVRES<span class="arrow_carrot-down"></span></a>
                                         <ul class="dropdown">
-                                            <li><a href="categories">Categories</a></li>
+                                            <li><a href="bookAdd">Categories</a></li>
                                             <c:if test="${( not empty user) || (user.roleId.role == 'Admin')}"> 
                                             <li><a href="bookAdd">bookAdd</a></li>
                                             </c:if>
                                             <li class="nav-item"><a class="text-truncate nav-link"href="/mangas/"><i class="fa-solid fa-books"></i>Mangas</a></li>
-                                            <li><a href="bookAdd">listes Manga</a></li>
+                                            <li><a href="list">listes Manga</a></li>
                                             <li><a href="anime-details">Anime Details</a></li>
                                             <li><a href="anime-watching">Anime Watching</a></li>
                                             <li><a href="./blog-details.html">Blog Details</a></li>

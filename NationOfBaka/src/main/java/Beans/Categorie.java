@@ -8,6 +8,13 @@ public class Categorie {
 	public Categorie() {
 	}
 	
+	/**
+	 * @param id
+	 */
+	public Categorie(int id) {
+		this.id = id;
+	}
+
 	public Categorie(String category, boolean isActive) {
 		this.nom = category;
 		this.isActive = isActive;
