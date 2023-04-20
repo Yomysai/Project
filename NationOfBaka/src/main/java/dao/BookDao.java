@@ -67,7 +67,7 @@ public class BookDao implements IDAO<Book>{
 	        		+ "inner join categorie ON book.category_id = categorie.id WHERE book.id ;");
 	        System.out.println(sql);
 	        
-	        ResultSet rs = sql.executeQuery(); // Exécuter la requête SQL et obtenir le résultat dans un ResultSet
+	        rs = sql.executeQuery(); // Exécuter la requête SQL et obtenir le résultat dans un ResultSet
 	        
 	        while (rs.next()) {
 	            int id = rs.getInt("id");

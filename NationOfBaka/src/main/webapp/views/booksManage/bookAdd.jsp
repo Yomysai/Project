@@ -1,106 +1,3 @@
-<%-- <c:if test="${(empty user) || (user.roleId.role == 'Client')}">
-    <title>Détails du livre</title>
-
-
-    <h1>Détails du livre</h1>
-    <p>ID : { book.getId() }></p>
-    <p>Titre : { book.getTitle() }></p>
-    <p>Auteur : { book.getAuteur() }></p>
-    <p>Année de publication : { book.getAnnee_publication() }></p>
-    <p>Catégorie : { book.getCategory_id().getName() }></p>
-    <p>Titre original : { book.getOriginal_title() }></p>
-    <p>Origine : { book.getOrigin() }></p>
-    <p>Statut : { book.getStatus() }></p>
-    <p>Date de sortie : { book.getRelease_date() }></p>
-    <p>Type : { book.getType() }></p>
-    <p>Genre(s) : 
-        <c:forEach items="${book.getGenres()}" var="genre">
-            { genre.getGenre() }><br>
-        </c:forEach>
-    </p>
-    <p>Auteur : { book.getAuthor().getName() }></p>
-    <p>Artiste : { book.getArtist() }></p>
-    <p>Synopsis : { book.getSynopsis() }></p>
-    <p>Image de couverture : { book.getCover_image() }></p>
-    <p>Date de création : { book.getCreated_at() }></p>
-</c:if>
-
-<c:if test="${(empty user.id) || (user.roleId.role == 'Admin')}">
-<!-- ****************************************************************************************************************************** -->
-    <title>Confirmation d'ajout de livre</title>
-
-    <h1>Confirmation d'ajout de livre</h1>
-    <p>Merci d'avoir ajouté un nouveau livre :</p>
-    <ul>
-        <li>ID : {request.getParameter("id") }></li>
-        <li>Titre : {request.getParameter("title") }></li>
-        <li>Auteur : {request.getParameter("auteur") }></li>
-        <li>Année de publication : {request.getParameter("annee_publication") }></li>
-        <li>Catégorie : {request.getParameter("category_id") }></li>
-        <li>Titre original : {request.getParameter("original_title") }></li>
-        <li>Origine : {request.getParameter("origin") }></li>
-        <li>Status : {request.getParameter("status") }></li>
-        <li>Date de sortie : {request.getParameter("release_date") }></li>
-        <li>Type : {request.getParameter("type") }></li>
-        <li>Genres : {request.getParameter("genres") }></li>
-        <li>Artiste : {request.getParameter("artist") }></li>
-        <li>Synopsis : {request.getParameter("synopsis") }></li>
-        <li>Image de couverture : {request.getParameter("cover_image") }></li>
-    </ul>
-    <p>Le livre a été ajouté avec succès dans la base de données.</p>
-    <a href="index.jsp">Retour à la page d'accueil</a>
-<!-- ***************************************************************************************************************** -->
-    
-    
-    <title>Inscription d'un nouveau livre</title>
-
-
-    <h1>Inscription d'un nouveau livre</h1>
-    <form action="BookServlet" method="post">
-        <label for="title">Titre :</label>
-        <input type="text" id="title" name="title" required><br>
-        <label for="auteur">Auteur :</label>
-        <input type="text" id="auteur" name="auteur" required><br>
-        <label for="annee_publication">Année de publication :</label>
-        <input type="number" id="annee_publication" name="annee_publication" required><br>
-        <label for="original_title">Titre original :</label>
-        <input type="text" id="original_title" name="original_title" required><br>
-        <label for="origin">Origine :</label>
-        <input type="text" id="origin" name="origin" required><br>
-        <label for="category_id">Catégorie :</label>
-        <select id="category_id" name="category_id" required>
-            <option value="1">Shonen</option>
-            <option value="2">Shojo</option>
-            <option value="3">Seinen</option>
-            <!-- Autres options de catégories -->
-        </select><br>
-        <label for="status_id">Statut :</label>
-        <select id="status_id" name="status_id" required>
-            <option value="1">En cours</option>
-            <option value="2">Terminé</option>
-            <!-- Autres options de statuts -->
-        </select><br>
-        <label for="release_date">Date de sortie :</label>
-        <input type="date" id="release_date" name="release_date" required><br>
-        <label for="type">Type :</label>
-        <input type="text" id="type" name="type" required><br>
-        <label for="genre_id">Genre :</label>
-        <select id="genre_id" name="genre_id" required>
-            <option value="1">Action</option>
-            <option value="2">Romance</option>
-            <option value="3">Fantasy</option>
-            <!-- Autres options de genres -->
-        </select><br>
-        <label for="artist">Artiste :</label>
-        <input type="text" id="artist" name="artist" required><br>
-        <label for="synopsis">Synopsis :</label><br>
-        <textarea id="synopsis" name="synopsis" rows="5" cols="30" required></textarea><br>
-        <label for="cover_image">Image de couverture :</label>
-        <input type="text" id="cover_image" name="cover_image" required><br>
-        <input type="submit" value="Inscrire le livre">
-    </form>
-</c:if>
-     --%>
 
 <title>Manhua Top Tier Providence | JapScan</title>
 
@@ -175,17 +72,16 @@
 			</div>
 		</nav>
  -->
-		<!-- <div class="donate-text"
+	 <div class="donate-text"
 			style="background: lightgreen; text-align: center; color: black; font-weight: bold;">
 			<p class="mb-0">
-				Travaillons ensemble pour que JAPSCAN soit sans publicités. <a
+				Travaillons ensemble pour que BAKA'SCAN soit sans publicités. <a
 					href="/donate/">Faire Un Don</a>
 			</p>
 		</div>
- -->
 
 
-
+ 
 
 
 
@@ -202,113 +98,76 @@
 						<hr>
 
 						<div class="card-body FbsYi"></div>
+<!-- Anime Section Begin -->
+    <section class="anime-details spad">
+        <div class="container">
+            <div class="anime__details__content">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="anime__details__pic set-bg" data-setbg="./assets/img/anime/details-pic.jpg">
+                            <div class="comment"><i class="fa fa-comments"></i> 11</div>
+                            <div class="view"><i class="fa fa-eye"></i> 9141</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-9">
+                        <div class="anime__details__text">
+											<div class="anime__details__title">
+                            <span class="font-weight-bold">Nom Original:</span>
+                                <h3>Fate Stay Night: Unlimited Blade</h3>
+                                <span>フェイト／ステイナイト, Feito／sutei naito</span>
+                            </div>
+											<div class="anime__details__rating">
+												<div class="rating">
+													<a href="#"><i class="fa fa-star"></i></a> <a href="#"><i
+														class="fa fa-star"></i></a> <a href="#"><i
+														class="fa fa-star"></i></a> <a href="#"><i
+														class="fa fa-star"></i></a> <a href="#"><i
+														class="fa fa-star-half-o"></i></a>
+												</div>
+												<span>1.029 Votes</span>
+											</div>
+                            <div class="font-weight-bold">Synopsis:</div>
+                            <p>Every human inhabiting the world of Alcia is branded by a “Count” or a number written on
+                                their body. For Hina’s mother, her total drops to 0 and she’s pulled into the Abyss,
+                                never to be seen again. But her mother’s last words send Hina on a quest to find a
+                            legendary hero from the Waste War - the fabled Ace!</p>
+                            <div class="anime__details__widget">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6">
+                                        <ul>
+                                            <li><span>Type:</span> TV Series</li>
+                                            <li><span>Studios:</span> Lerche</li>
+                                            <li><span>Date aired:</span> Oct 02, 2019 to ?</li>
+                                            <li><span>Status:</span> Airing</li>
+                                            <li><span>Genre:</span> Action, Adventure, Fantasy, Magic</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6">
+                                        <ul>
+                                            <li><span>Scores:</span> 7.31 / 1,515</li>
+                                            <li><span>Rating:</span> 8.5 / 161 times</li>
+                                            <li><span>Duration:</span> 24 min/ep</li>
+                                            <li><span>Quality:</span> HD</li>
+                                            <li><span>Views:</span> 131,541</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="anime__details__btn">
+                                <a href="#" class="follow-btn"><i class="fa fa-heart-o"></i> Follow</a>
+                                <a href="#" class="watch-btn"><span>Watch Now</span> <i
+                                    class="fa fa-angle-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
 
-						<div class="d-flex">
-							<div class="m-2">
-								<img
-									style="width: 250px; height: 360px; margin-right: 292px; margin-bottom: 10px"
-									src="./assets/img/listeManga/top-tier-providence.jpg" alt="">
-							</div>
-
-							<div class="m-2">
-
-								<p class="mb-2">
-									<span class="font-weight-bold">Nom Original:</span> 顶级气运，悄悄修炼千年
-								</p>
-
-								<p class="mb-2">
-									<span class="font-weight-bold">Nom(s) Alternatif(s):</span> Top
-									Tier Providence- Secretly Cultivate for a Thousand Years,
-									Dingji Qiyun, Qiaoqiao Xiulian Qiannian, Lucky Me: I Secretly
-									Cultivated for 1,000 Years, Top-Notch Fate, Secretly Practicing
-									Asceticism in Millenniums
-								</p>
-
-								<p class="mb-2">
-									<span class="font-weight-bold">Origine:</span> <i
-										class="flag flag-cn"></i> <span>Chine</span>
-								</p>
-
-								<p class="mb-2">
-									<span class="font-weight-bold">Statut:</span> En Cours
-								</p>
-
-
-								<p class="mb-2">
-									<span class="font-weight-bold">Date Sortie:</span> 2022
-								</p>
-
-
-
-								<p class="mb-2">
-									<span class="font-weight-bold">Type(s):</span> Shounen
-								</p>
-
-
-
-								<p class="mb-2">
-									<span class="font-weight-bold">Genre(s):</span> Fantastique,
-									Ecchi, Action, Aventure, Combats, Historique, Réincarnation,
-									Arts Martiaux, Wuxia
-								</p>
-
-
-
-								<p class="mb-2">
-									<span class="font-weight-bold">Artiste(s):</span> Starry Sky
-									Company
-								</p>
-
-
-
-								<p class="mb-2">
-									<span class="font-weight-bold">Auteur(s):</span> Starry Sky
-									Company
-								</p>
-
-
-
-
-
-								<p class="mb-2">
-									<span class="font-weight-bold">Âge conseillé :</span> +12 ans
-								</p>
-
-
-
-								<p class="mb-2">
-									<span class="font-weight-bold">Abonnement RSS:</span> <a
-										href="/rss/top-tier-providence/"><i class="fas fa-rss"></i></a>
-								</p>
-
-							</div>
-
-						</div>
-
-						<div class="font-weight-bold">Synopsis:</div>
-						<p class="list-group-item list-group-item-primary text-justify">En
-							se réincarnant dans un monde de culture, Han Jue réalise
-							qu&#039;il peut vivre sa vie comme un jeu vidéo. Il peut relancer
-							son potentiel de culture et sa providence de connivence. Donc, il
-							a passé 11 ans à relancer pour en trouver un bon... [Incomparable
-							: Beauté immortelle, charme inégalé] [Destiné aux fanatiques de
-							l&#039;épée : Aptitude au Dao de l&#039;épée de premier ordre,
-							compréhension du Dao de l&#039;épée de premier ordre] [Technique
-							de mouvement inégalée : aptitude à la technique de mouvement de
-							premier ordre] [Descendant de l&#039;Empereur Immortel : Vous
-							recevrez une technique de culture inégalée et 1 000 pierres
-							spirituelles de qualité supérieure]. En quête de longévité, Han
-							Jue décide de cultiver de manière discrète. Mille ans plus tard,
-							des générations de cultivateurs sont devenues de l&#039;histoire
-							ancienne. C&#039;est à ce moment que les êtres du pays des fées
-							commencent à nettoyer le monde des mortels. Han Jue ne peut plus
-							se cacher et n&#039;a d&#039;autre choix que d&#039;agir. Il se
-							rend alors compte que les divinités et les dieux ne sont pas si
-							puissants après tout !</p>
-
-
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Anime Section End -->
 					</div>
-				</div>
+				</div> 
 
 				<div class="card">
 
@@ -429,6 +288,79 @@
 
 						</div>
 					</div>
+					 <div class="col-lg-8 col-md-8">
+                        <div class="anime__details__review">
+                            <div class="section-title">
+                                <h5>Reviews</h5>
+                            </div>
+                            <div class="anime__review__item">
+                                <div class="anime__review__item__pic">
+                                    <img src="./assets/img/anime/review-1.jpg" alt="">
+                                </div>
+                                <div class="anime__review__item__text">
+                                    <h6>Chris Curry - <span>1 Hour ago</span></h6>
+                                    <p>whachikan Just noticed that someone categorized this as belonging to the genre
+                                    "demons" LOL</p>
+                                </div>
+                            </div>
+                            <div class="anime__review__item">
+                                <div class="anime__review__item__pic">
+                                    <img src="./assets/img/anime/review-2.jpg" alt="">
+                                </div>
+                                <div class="anime__review__item__text">
+                                    <h6>Lewis Mann - <span>5 Hour ago</span></h6>
+                                    <p>Finally it came out ages ago</p>
+                                </div>
+                            </div>
+                            <div class="anime__review__item">
+                                <div class="anime__review__item__pic">
+                                    <img src="./assets/img/anime/review-3.jpg" alt="">
+                                </div>
+                                <div class="anime__review__item__text">
+                                    <h6>Louis Tyler - <span>20 Hour ago</span></h6>
+                                    <p>Where is the episode 15 ? Slow update! Tch</p>
+                                </div>
+                            </div>
+                            <div class="anime__review__item">
+                                <div class="anime__review__item__pic">
+                                    <img src="./assets/img/anime/review-4.jpg" alt="">
+                                </div>
+                                <div class="anime__review__item__text">
+                                    <h6>Chris Curry - <span>1 Hour ago</span></h6>
+                                    <p>whachikan Just noticed that someone categorized this as belonging to the genre
+                                    "demons" LOL</p>
+                                </div>
+                            </div>
+                            <div class="anime__review__item">
+                                <div class="anime__review__item__pic">
+                                    <img src="./assets/img/anime/review-5.jpg" alt="">
+                                </div>
+                                <div class="anime__review__item__text">
+                                    <h6>Lewis Mann - <span>5 Hour ago</span></h6>
+                                    <p>Finally it came out ages ago</p>
+                                </div>
+                            </div>
+                            <div class="anime__review__item">
+                                <div class="anime__review__item__pic">
+                                    <img src="./assets/img/anime/review-6.jpg" alt="">
+                                </div>
+                                <div class="anime__review__item__text">
+                                    <h6>Louis Tyler - <span>20 Hour ago</span></h6>
+                                    <p>Where is the episode 15 ? Slow update! Tch</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="anime__details__form">
+                            <div class="section-title">
+                                <h5>Your Comment</h5>
+                            </div>
+                            <form action="#">
+                                <textarea placeholder="Your Comment"></textarea>
+                                <button type="submit"><i class="fa fa-location-arrow"></i> Review</button>
+                            </form>
+                        </div>
+                    </div>
+					 <c:if test="${user.roleId.role == 'Admin' }">
 						<div class="rounded-0 card-header bg-dark text-white">
 						<h3>Ajout d'un nouveau livre</h3>
 						<h5>Liste des livres</h5>
@@ -436,16 +368,17 @@
 					<!-- <h1>Liste des livres</h1> -->
 					    <table>
 					        <tr>
+					            <th>#Id</th>
 					            <th>Titre</th>
 					            <th>Auteur</th>
 					            <th>Genre</th>
 					        </tr>
 					        <c:forEach items="${listBooks}" var="book">
 					            <tr>
-					                <td><c:out value="${book.title}" /></td>
-					                <td><c:out value="${book.author.getid}" /></td>
-					                <td><c:out value="${book.category_id.getCategory()}" /></td>
 					                <td><c:out value="${book.id}" /></td>
+					                <td><c:out value="${book.title}" /></td>
+					                <td><c:out value="${book.}" /></td>
+					                <td><c:out value="${book.category_id.getCategory()}" /></td>
 					            </tr>
 					        </c:forEach>
 					    </table> 
@@ -453,7 +386,11 @@
 					
 				    <form action="BookServlet"method="post" enctype="multipart/form-data">
 					
-						<c:if test="${not empty utilisateur}">
+						<c:if test="${empty user.roleId.role == 'Admin'}">
+						<div class="rounded-0 card-header bg-dark text-white">
+						<h3>Ajout d'un nouveau livre</h3>
+						<h5>Liste des livres</h5>
+					</div>	
 								<input type="hidden"class="form-control" name="id"  value="<c:if test="${ not empty utilisateur}"> <c:out value="${utilisateur.id_user }"/> </c:if>">   <!--  -->
 						</c:if>
 						
@@ -558,14 +495,13 @@
 				      </div>
 						
 				    </form>
+				    </c:if>
 				</div>
-
 			</div>
 
 			<div id="sidebar" class="col-md-4">
-
-
 				<div class="card">
+			
 					<div class="rounded-0 card-header bg-dark text-white">
 						<h5>TOP 10 DONATEURS</h5>
 					</div>
@@ -619,6 +555,23 @@
 						</ul>
 					</div>
 				</div>
+
+                    <div class="rounded-0 card-header bg-dark text-white">
+  <div class="anime__details__sidebar">
+    <div class="section-title">
+      <h5>you might like...</h5>
+    </div>
+    <c:forEach var="item" items="${listBooks}">
+      <div class="product__sidebar__view__item set-bg" data-setbg="./assets/img/listeM/${item.cover_image}">
+        <div class="ep">${item}</div>
+        <div class="view"><i class="fa fa-eye"></i> ${item}</div>
+        <h5><a href="#">${item.title}</a></h5>
+      </div>
+    </c:forEach>
+  </div>
+</div>
+                    
+                    
 				<div class="card">
 					<div class="card FbsYi"></div>
 
@@ -1284,8 +1237,8 @@
 
 	<div class="card FbsYi"></div>
 
-	<script data-cfasync="false"
-		src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+	<!-- <script data-cfasync="false"
+		src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script> -->
 	<script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
 	<script>
 		kofiWidgetOverlay.draw("japscan", {

@@ -1,51 +1,129 @@
-div class="container">
-	<!-- Begin Page Content -->
-    <div class="container-fluid">
-    <!--  ==============Message en cas d'erreur ================ -->
-		<c:if test="${ empty utilisateur }">
-			
-			<div class="alert alert-danger">
-					Vous devez �tre connecter en tant ADMIN pour acceder � cette page
-					
-					<p><a href="<%= request.getContextPath()%>/login">Se connecter</a></p>
-			</div>
-			<img alt="connected" src="images/connected2.jpg">
-		</c:if>
-		
-		<c:if test="${ not empty utilisateur }">
-             <!-- Ajout article -->
-           
-				<form method="post" enctype="multipart/form-data">
-			        	<div class="mb-3">
-						  <label for="exampleFormControlInput1" class="form-label">Titre</label>
-						  <input type="text" class="form-control" placeholder="titre" name="titre" value="${article.titre }"> <input type="hidden" class="form-control" placeholder="titre"
-						name="id" value="${article.id }">
-				</div>
-			        	<div class="mb-3">
-						  <label for="exampleFormControlInput1" class="form-label">R�sum�</label>
-						 <input type="text" class="form-control" name="resume" placeholder="Entrez votre resume  *" value="${article.resume }">
-						</div>
-						<div class="mb-3">
-						  <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
-						 <textarea name="contenu" class="form-control" rows="7" placeholder="Entrez votre contenu *" >
-						 ${article.contenu }
-						 </textarea>
-						</div>
-						<div class="input-group mb-3">
-						  <img alt="" src="resources/uploads/${article.image }" width="200">
-						  <label class="input-group-text" for="inputGroupFile01">Changer l'image</label>
-						  <input type="file" class="form-control" id="inputGroupFile01" name="photo" required="required" value="${article.image }">
-						</div>
-				      <div class="modal-footer">
-				        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-				        <button type="submit" class="btn btn-primary">Ajouter</button>
-				        
-				      </div>
-
-			        </form>
-			</c:if>
-			
-		</div>
-	
-
+<div class="container my-5">
+    <div class="row">
+        <div class="col-9">
+        <c:if test="${not empty cart.getItems() }">
+            <table class="table text-center">
+                <thead>
+                    <tr>
+                        <th>visuel</th>
+                        <th>Nom produit</th>
+                        <th>Prix unitaire</th>
+                        <th>Remise</th>
+                        <th>Quantite</th>
+                        <th>TTC</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody class="align-middle">
+                  <c:forEach items="${cart.getItems()}" var="item">  
+                    <tr>
+                        <td><img height=40 src="assets/products/img/<c:out value="${item.getProduct().getMainPicPath()}"/>"  alt="#"></td>
+                        <td><p class="cartD"><c:out value="${item.getProduct().getName()}"/></p></td>
+                        <td><p class="cartD"><c:out value="${String.format('%.2f', item.getProduct().getPrice()+(item.getDiscount()*item.getProduct().getPrice())) }"/> &euro; ttc</p></td>
+                        
+                        <td><p class="cartD"><c:out value="${String.format('%.2f', item.getDiscount()*100) }"/> %</p></td>
+                        
+                        <td><div style="display: inline-flex;">
+                        <p class="cartD">
+                        <form method="post" >
+							<button type="submit" class="btn btn-light" name="plus" value="<c:out value="${item.getProduct().getId()}"/>">
+							   <i class="bi bi-plus-circle  p-3"></i>
+							</button>
+						</form>
+                        
+                        
+                        <c:out value="${item.getQuantity()}"/>
+                        
+                        <form method="post" >
+							<button type="submit" class="btn btn-light" name="minus" value="<c:out value="${item.getProduct().getId()}"/>">
+							   <i class="bi bi-dash-circle p-3 "></i>
+							</button>
+						</form>
+						
+                        
+                        </div>
+                        </p></td>
+                        
+                        
+                        
+                        <td><p class="cartD"><c:out value="${ String.format('%.2f', item.getProduct().getPrice()*item.getQuantity()) }"/> &euro; </p></td>
+                    
+                    
+                  		<td><p class="cartD">
    
+   
+                        <form method="post">
+							<button type="submit" class="btn btn-danger" name="deleteItem" value="<c:out value="${item.getProduct().getId()}"/>">
+							    <i class="bi bi-trash3-fill"></i>
+							</button>
+						</form>
+						               		
+
+
+						</p></td>
+                    
+                    </tr>
+                  </c:forEach>  
+                  
+                  
+                  <tr>
+                        <td colspan="4"><p class="total">TOTAL:</p></td>
+         
+                        
+                        <td><p class="cartH"><c:out value="${cart.countProduct() }"/></p></td>
+                    
+                    
+                  		<td><p class="cartH"><c:out value="${cart.countPrixProduct() }"/> &euro; </p></td>
+                    
+                    </tr>
+                </tbody>
+            </table>
+         
+        </div>
+        <div class="col-3 p-3 bg-secondary d-flex flex-column justify-content-between">
+            <div>
+                <table class="table text-light lh-lg">
+                    <thead class="text-center align-middle table-light">
+                        <tr>
+                            <th colspan="2">Commande total :</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="col-3 fst-italic">Sous-Total HT :</td>
+                            <td class="col-3 fst-italic"> &euro;</td>
+                        </tr>
+                        <tr>
+                            <td class="col-3 fst-italic">Remise ():</td>
+                            <td class="col-3 fst-italic">0 &euro;</td>
+                        </tr>
+                        <tr>
+                            <td class="col-3 fst-italic">TVA (20 %) :</td>
+                            <td class="col-3 fst-italic">  &euro;</td>
+                        </tr>
+                        <tr class="mt-5">
+                            <td class="col-3 fw-bolder">TOTAL TTC :</td>
+                            <td class="col-3 fw-bolder"><c:out value="${cart.countPrixProduct() }"/> &euro;</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="align-self-end">
+                <a href="payment">
+                    <button class="btn btn-success" type="submit"><i class="bi bi-cash-coin me-3"></i>payer</button>
+                </a>
+            </div>
+          </c:if>
+          
+          <c:if test="${empty cart.getItems() }">
+           <div><img src="assets/images/logo/paniervide.png" width="200px">  </div>
+            	     <p class="cartL">Votre panier est vide!!!</p>
+            	     <a href="/Afpazon" class="btn btn-primary">Continuer les achats</a>
+          </c:if>
+          
+        </div>
+       
+    </div>
+    
+</div>
+

@@ -43,7 +43,7 @@
                                      <li>
                                         <a href="livre">LIVRES<span class="arrow_carrot-down"></span></a>
                                         <ul class="dropdown">
-                                            <li><a href="bookAdd">Categories</a></li>
+                                            <li><a href="bookAdd">Anime Details</a></li>
                                             <c:if test="${( not empty user) || (user.roleId.role == 'Admin')}"> 
                                             <li><a href="bookAdd">bookAdd</a></li>
                                             </c:if>
@@ -59,27 +59,7 @@
                                     <li><a href="./blog.html">Our Blog</a></li>
                                     <li><a href="#">Contacts</a></li>
                                 </ul>
-                               <%--  <ul>
-                                  <li class="active"><a href="index">Homepage</a></li>
-                                    <li>
-                                        <a href="livre">LIVRES<span class="arrow_carrot-down"></span></a>
-                                        <ul class="dropdown">
-                                            <li><a href="categories">Categories</a></li>
-                                            <c:if test="${( not empty user) || (user.roleId.role == 'Admin')}"> 
-                                            <li><a href="bookAdd">bookAdd</a></li>
-                                            </c:if>
-                                            <li class="nav-item"><a class="text-truncate nav-link"href="/mangas/"><i class="fa-solid fa-books"></i>Mangas</a></li>
-                                            <li><a href="bookAdd">listes Manga</a></li>
-                                            <li><a href="anime-details">Anime Details</a></li>
-                                            <li><a href="anime-watching">Anime Watching</a></li>
-                                            <li><a href="./blog-details.html">Blog Details</a></li>
-                                            <li><a href="register">Sign Up</a></li>
-                                            <li><a data-toggle="modal" data-target="#myModal" class="primary-btn">Login</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="./blog.html">Our Blog</a></li>
-                                    <li><a href="#">Contacts</a></li>
-                                </ul> --%>
+                                
                                 <form class="d-flex" role="search">
                                     <select  class="form-select rounded-end-0" style="z-index: 1050;">
                                         <option selected value="0">Categories</option>
@@ -105,9 +85,10 @@
                             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                                 <c:if test="${ empty user}">
                                     <li class="nav-item mt-auto mb-auto me-3">
-                                        <a data-toggle="modal" data-target="#myModal" class="nav-link d-inline"><span
-                                                class="icon_profile"></span>
-                                            <i class="bi bi-box-arrow-in-right"></i></a>
+                                        <a data-toggle="modal" data-target="#myModal" class="nav-link d-inline">
+                                        <span class="icon_profile"></span>
+                                            <i class="bi bi-box-arrow-in-right"></i>
+                                        </a>
                                         <!-- <a class="nav-link d-inline"></a>  -->
                                         <a href="register" class="nav-link d-inline">
                                             <i class="bi bi-person-plus"></i> S'inscrire</a>
@@ -132,6 +113,12 @@
                                 </c:if>
                             </ul>
                         </div>
+                        <div class="navbar-right">
+						<div class="navbar-items" title="Notifications">
+						<span class="badge-container js_span_notif">
+						<a href="/notifications"> <i class="fa fa-bell"></i> </a>
+						<span class="badge badge-danger" id="badge-notifs">58</span>
+						</span>
                     </div>
                 </div>
                 <div id="mobile-menu-wrap"></div>
@@ -176,6 +163,8 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                </div>
                 </div>
 
         </header>

@@ -246,7 +246,7 @@ ol {
 
 .section-title h4,
 .section-title h5 {
-	color: #ffffff;
+	color: #510a5e;
 	font-weight: 600;
 	line-height: 21px;
 	text-transform: uppercase;
@@ -1126,7 +1126,7 @@ ol {
 }
 
 .anime__details__title h3 {
-	color: #ffffff;
+	color: #5c1d6c;
 	font-weight: 700;
 	margin-bottom: 13px;
 }
@@ -1141,7 +1141,7 @@ ol {
 	text-align: center;
 	position: absolute;
 	right: 0;
-	top: 0;
+	top: 570px;
 }
 
 .anime__details__rating .rating i {
@@ -1167,7 +1167,7 @@ ol {
 .anime__details__widget ul li {
 	list-style: none;
 	font-size: 15px;
-	color: #ffffff;
+	color: #b956d9;
 	line-height: 30px;
 	position: relative;
 	padding-left: 18px;

@@ -69,6 +69,7 @@ public class BookAdd extends HttpServlet {
 
         session.setAttribute("categoriesList", listCategories);
         session.setAttribute("listBooks", listBooks);
+        System.out.println(listBooks+"lllllllllllllllllll33");
       //  session.setAttribute("subcategoriesList", subcategoryNames); // Utiliser les noms de chaînes de caractères des sous-catégories
 
         request.getRequestDispatcher("/views/booksManage/bookAdd.jsp").forward(request, response);

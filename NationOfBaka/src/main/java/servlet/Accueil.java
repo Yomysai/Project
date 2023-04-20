@@ -11,7 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import Beans.Book;
 import Beans.User;
+import dao.BookDao;
 import dao.CategorieDao;
 
 /**
@@ -34,9 +36,13 @@ public class Accueil extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		CategorieDao categoryDao = new CategorieDao();
 		HttpSession session = request.getSession(true);
 		User currentUser = (User) session.getAttribute("user");
+		ArrayList<Book> readtBooks = new ArrayList<>();
+		
+		readtBooks=new BookDao().read();
+		System.out.println(readtBooks+"rrrrrrrrrrrrrrrrr");
+		request.setAttribute("articleR",readtBooks );
 		
 		if (currentUser != null) {
 			if (currentUser.getRoleId().getRole().equalsIgnoreCase("Admin")) {
@@ -59,6 +65,8 @@ public class Accueil extends HttpServlet {
 	}
 	protected void pageLoad(HttpServletRequest request, HttpServletResponse response) {
 		try {
+			
+			
 			request.getRequestDispatcher("/views/index.jsp").forward(request,response);
 		} catch (ServletException e) {
 			// TODO Auto-generated catch block

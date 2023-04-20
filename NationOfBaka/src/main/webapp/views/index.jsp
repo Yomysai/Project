@@ -44,8 +44,35 @@
 									</div>
 								</div>
 							</div>
+							
+							
 							<div class="row">
-								<div class="col-lg-4 col-md-6 col-sm-6">
+							<c:forEach var="item" items="${articleR}">
+							  <div class="col-lg-4 col-md-6 col-sm-6">
+							    <div class="product__item">
+							      <div class="product__item__pic set-bg"
+							        data-setbg="./assets/img/listeM/${item.cover_image}">
+							        <div class="ep episode">${item}</div>
+							        <div class="comment">
+							          <i class="fa fa-comments"></i> ${item}
+							        </div>
+							        <div class="view">
+							          <i class="fa fa-eye"></i> ${item}
+							        </div>
+							      </div>
+							      <div class="product__item__text">
+							        <ul>
+							          <li>${item.status}</li>
+							          <li>${item}</li>
+							        </ul>
+							        <h5>
+							          <a href="#">${item.title}</a>
+							        </h5>
+							      </div>
+							    </div>
+							  </div>
+							</c:forEach>
+								<!-- <div class="col-lg-4 col-md-6 col-sm-6">
 									<div class="product__item">
 										<div class="product__item__pic set-bg"
 											data-setbg="./assets/img/trending/trend-1.jpg">
@@ -183,7 +210,7 @@
 											</h5>
 										</div>
 									</div>
-								</div>
+								</div> -->
 							</div>
 						</div>
 						<div class="popular__product">
